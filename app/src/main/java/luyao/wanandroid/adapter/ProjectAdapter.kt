@@ -1,6 +1,6 @@
 package luyao.wanandroid.adapter
 
-import android.text.Html
+import androidx.core.text.HtmlCompat
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -17,7 +17,7 @@ import luyao.wanandroid.model.bean.Article
 class ProjectAdapter(layoutResId: Int = R.layout.item_project) : BaseQuickAdapter<Article, BaseViewHolder>(layoutResId) {
 
     override fun convert(helper: BaseViewHolder, item: Article) {
-        helper.setText(R.id.projectName,if (fromN()) Html.fromHtml(item.title, Html.FROM_HTML_MODE_LEGACY) else Html.fromHtml(item.title))
+        helper.setText(R.id.projectName,HtmlCompat.fromHtml(item.title,HtmlCompat.FROM_HTML_MODE_LEGACY))
                 .setText(R.id.projectDesc, item.desc)
                 .setText(R.id.projectAuthor, item.author)
                 .setText(R.id.projectTime, item.niceDate)
