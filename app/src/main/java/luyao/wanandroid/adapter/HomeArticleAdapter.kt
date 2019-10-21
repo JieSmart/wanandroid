@@ -1,6 +1,6 @@
 package luyao.wanandroid.adapter
 
-import android.text.Html
+import androidx.core.text.HtmlCompat
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import luyao.util.ktx.ext.fromN
@@ -21,7 +21,7 @@ class HomeArticleAdapter(layoutResId: Int = R.layout.item_article) : BaseQuickAd
     }
 
     override fun convert(helper: BaseViewHolder, item: Article) {
-        helper.setText(R.id.articleTitle, if (fromN()) Html.fromHtml(item.title, Html.FROM_HTML_MODE_LEGACY) else Html.fromHtml(item.title))
+        helper.setText(R.id.articleTitle, HtmlCompat.fromHtml(item.title,HtmlCompat.FROM_HTML_MODE_LEGACY))
                 .setText(R.id.articleAuthor, item.author)
                 .setText(R.id.articleTag, "${item.superChapterName ?: ""} ${item.chapterName}")
                 .setText(R.id.articleTime, item.niceDate)
