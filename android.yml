@@ -14,6 +14,6 @@ jobs:
       with:
         java-version: 1.8
     - name: 提权
-      run:  chmod +x gradlew
+      run:  chmod 755 gradlew
     - name: Build with Gradle
       run: ./gradlew build
